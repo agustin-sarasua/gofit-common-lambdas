@@ -49,3 +49,13 @@ Outputs:
   AwsRegion:
     Value: !Ref 'AWS::Region'
     Description: Region of the AWS deployment
+  CustomAuthorizer:
+    Value:
+        Fn::GetAtt:
+        - customAuthorizerLambda
+        - Arn
+    Description: 'Custom Authorizer Lambda function ARN'
+    Export:
+      Name: !Sub ${prefix}-custom-authorizer-lambda
+    
+    
